@@ -15,6 +15,7 @@ function TapDetail(props) {
       <h3>{tap.name} - {tap.brand}</h3>
       <p><em>{tap.price}</em></p>
       <p><em>quantity: {tap.alchohalContent}</em></p>
+      <p><em>pints: {tap.pints}</em></p>
       <hr />
     </React.Fragment>
   );

@@ -9,7 +9,8 @@ class TapControl extends React.Component {
       mainTapList: [{
         name: "Rainer",
         brand: "IPA",
-        price: 4,
+        price: 4.00,
+        pints: 124,
         alcohalContent: 5.0,
         amountMade: 0
       }

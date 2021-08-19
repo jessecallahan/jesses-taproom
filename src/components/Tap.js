@@ -11,6 +11,7 @@ function Tap(props) {
         <td>{props.price}</td>
         <td>{props.alcohalContent}</td>
         <td>{props.amountMade}</td>
+        <td>{props.pints}</td>
         {/* </div> */}
       </tr>
     </React.Fragment>

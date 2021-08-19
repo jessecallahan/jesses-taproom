@@ -14,6 +14,7 @@ function TapList(props) {
           <th>Alcohal Content</th>
           <th>Price:</th>
           <th>Amount Sold:</th>
+          <th>Pints Left:</th>
         </tr>
 
         {props.tapList.map((tap) =>
