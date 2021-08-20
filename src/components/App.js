@@ -5,7 +5,7 @@ import TapControl from "./TapControl";
 function App() {
   return (
     <React.Fragment>
-      {/* <Header /> */}
+      <Header />
       <TapControl />
 
     </React.Fragment>
