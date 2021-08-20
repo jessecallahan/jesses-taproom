@@ -14,7 +14,8 @@ class TapControl extends React.Component {
         price: 4.00,
         pints: 124,
         alcohalContent: 5.0,
-        amountMade: 0
+        amountMade: 0,
+        id: 1
       }
       ],
       formVisibleState: "Home",
@@ -51,6 +52,15 @@ class TapControl extends React.Component {
       { formVisibleState: "Edit" }
     )
   }
+  handleDeletingTap = (id) => {
+    const newMainTapList = this.state.mainTapList.filter(tap => tap.id !== id);
+    this.setState({
+      mainTapList: newMainTapList,
+      selectedTap: null,
+      formVisibleState: "Home"
+    });
+  }
+
 
   handleAddingNewTapToList = (newTap) => {
     const newMainTapList = this.state.mainTapList.concat(newTap);
@@ -61,13 +71,22 @@ class TapControl extends React.Component {
     });
   }
 
+  handleEditingTapInList = (TapToEdit) => {
+    const editedMainTapList = this.state.mainTapList.filter(tap => tap.id !== this.state.selectedTap.id).concat(TapToEdit);
+    this.setState({
+      mainTapList: editedMainTapList,
+      selectedTap: null,
+      formVisibleState: "Home"
+    });
+  }
+
   render() {
     let leftSideCurrentlyVisibleState = null;
     let rightSideButtonText = null;
     let rightSideCurrentlyVisibleState = null;
     //left side conditional
     if (this.state.selectedTap != null) {
-      leftSideCurrentlyVisibleState = <TapDetail tap={this.state.selectedTap} detailClick={this.handleDetailClick} />
+      leftSideCurrentlyVisibleState = <TapDetail deleteButtonClick={this.handleDeletingTap} editButtonClick={this.handleEditClick} tap={this.state.selectedTap} detailClick={this.handleDetailClick} onClickingEdit={this.handleEditClick} />
     } else {
       leftSideCurrentlyVisibleState = <TapList tapList={this.state.mainTapList} whenTapClicked={this.handleTapClick} />
     }
@@ -76,7 +95,7 @@ class TapControl extends React.Component {
       rightSideCurrentlyVisibleState = <NewTapForm onNewTapCreation={this.handleAddingNewTapToList} />
       rightSideButtonText = "Go Back Home";
     } else if (this.state.formVisibleState === "Edit") {
-      rightSideCurrentlyVisibleState = <EditTapForm />
+      rightSideCurrentlyVisibleState = <EditTapForm tap={this.state.selectedTap} onEditTap={this.handleEditingTapInList} />
       rightSideButtonText = "Go Back Home";
     } else {
       rightSideCurrentlyVisibleState = <p>
