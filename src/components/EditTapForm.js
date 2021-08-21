@@ -7,7 +7,7 @@ function EditTapForm(props) {
 
   function handleEditTapFormSubmission(event) {
     event.preventDefault();
-    props.onEditTap({ name: event.target.name.value, brand: event.target.brand.value, description: event.target.description.value, price: event.target.price.value, pints: tap.pints, alcohalContent: event.target.alcohalContent.value, amountMade: tap.amountMade, id: tap.id });
+    props.onEditTap({ name: event.target.name.value, brand: event.target.brand.value, description: event.target.description.value, price: parseInt(event.target.price.value), pints: tap.pints, alcohalContent: parseInt(event.target.alcohalContent.value), amountMade: tap.amountMade, id: tap.id });
   }
 
   return (

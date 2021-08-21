@@ -12,7 +12,7 @@ class TapControl extends React.Component {
         name: "Rainer",
         brand: "IPA",
         price: 4.00,
-        pints: 124,
+        pints: 5,
         alcohalContent: 5.0,
         amountMade: 0,
         id: 1
@@ -80,13 +80,21 @@ class TapControl extends React.Component {
     });
   }
 
+  handleSellingTapInList = (TapToEdit) => {
+    const editedMainTapList = this.state.mainTapList.filter(tap => tap.id !== this.state.selectedTap.id).concat(TapToEdit);
+    this.setState({
+      mainTapList: editedMainTapList,
+      selectedTap: TapToEdit
+    });
+  }
+
   render() {
     let leftSideCurrentlyVisibleState = null;
     let rightSideButtonText = null;
     let rightSideCurrentlyVisibleState = null;
     //left side conditional
     if (this.state.selectedTap != null) {
-      leftSideCurrentlyVisibleState = <TapDetail deleteButtonClick={this.handleDeletingTap} editButtonClick={this.handleEditClick} tap={this.state.selectedTap} detailClick={this.handleDetailClick} onClickingEdit={this.handleEditClick} />
+      leftSideCurrentlyVisibleState = <TapDetail sellButtonClick={this.handleSellingTapInList} deleteButtonClick={this.handleDeletingTap} editButtonClick={this.handleEditClick} tap={this.state.selectedTap} detailClick={this.handleDetailClick} onClickingEdit={this.handleEditClick} />
     } else {
       leftSideCurrentlyVisibleState = <TapList tapList={this.state.mainTapList} whenTapClicked={this.handleTapClick} />
     }
@@ -99,7 +107,7 @@ class TapControl extends React.Component {
       rightSideButtonText = "Go Back Home";
     } else {
       rightSideCurrentlyVisibleState = <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Welcome to the tap room. A place where you can see all your beautiful taps in a list. You can add taps, edit taps, delete taps, sell pints, and look at all your taps. To add a tap just click the button below. To edit a tap just click a tap in the list. To sell a pint click the button and to get back to the list just click the tap detail card. Enjoy!
       </p>
       rightSideButtonText = "Add a Tap"
     }

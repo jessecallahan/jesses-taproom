@@ -8,29 +8,30 @@ function TapList(props) {
     <React.Fragment>
       <hr />
       <table id="customers">
-        <tr>
-          <th>Name</th>
-          <th>Brand</th>
-          <th>Alcohal Content</th>
-          <th>Price:</th>
-          <th>Amount Sold:</th>
-          <th>Pints Left:</th>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Alcohal Content</th>
+            <th>Price:</th>
+            <th>Amount Sold:</th>
+            <th>Pints Left:</th>
+          </tr>
 
-        {props.tapList.map((tap) =>
+          {props.tapList.map((tap) =>
+            <Tap
+              whenTapClicked={props.whenTapClicked}
+              name={tap.name}
+              brand={tap.brand}
+              price={tap.price}
+              alcohalContent={tap.alcohalContent}
+              id={tap.id}
+              amountMade={tap.amountMade}
+              pints={tap.pints}
+              key={tap.id} />
 
-          <Tap
-            whenTapClicked={props.whenTapClicked}
-            name={tap.name}
-            brand={tap.brand}
-            price={tap.price}
-            alcohalContent={tap.alcohalContent}
-            id={tap.id}
-            amountMade={tap.amountMade}
-            pints={tap.pints}
-            key={tap.id} />
-
-        )}
+          )}
+        </tbody>
       </table>
 
     </React.Fragment>
