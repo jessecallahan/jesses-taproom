@@ -15,7 +15,7 @@ This website allows you to create, edit, and delete taps. Look at a list of your
 
 ## Flow Chart / Design
 
-![flow chart](./img/jesse.jpg)
+![flow chart](./src/img/jesse.jpg)
 ## Known Bugs
 
 No known bugs at this time
