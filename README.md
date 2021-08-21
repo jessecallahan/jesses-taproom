@@ -28,7 +28,7 @@ This software is licensed under the MIT license
 
 ## Contact Information
 
-jessetylercallahan@gmail.com>
+jessetylercallahan@gmail.com
 
 
 ## Technologies Used
